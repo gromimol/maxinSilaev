@@ -111,6 +111,9 @@ b, strong, .font-700{
 			color: #6BD8E1;
 		}
 	}
+	.close {
+		display: none;
+	}
 }
 
 .btn {
@@ -210,6 +213,49 @@ b, strong, .font-700{
 		background: #fff;
 		color: var(--text-color);
 	}
+}
+/* Анимированный текст */
+.animated-text {
+	display: inline-block;
+	position: relative;
+}
+
+.animated-word {
+	display: inline-block;
+	position: relative;
+	margin-right: 0.3em;
+	opacity: 0;
+	transform: translateY(30px);
+	transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animated-word.animate {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Направления анимации */
+.animated-word.from-left {
+	transform: translateX(-50px);
+}
+
+.animated-word.from-right {
+	transform: translateX(50px);
+}
+
+.animated-word.from-top {
+	transform: translateY(-30px);
+}
+
+.animated-word.from-bottom {
+	transform: translateY(30px);
+}
+
+.animated-word.from-left.animate,
+.animated-word.from-right.animate,
+.animated-word.from-top.animate,
+.animated-word.from-bottom.animate {
+	transform: translateX(0) translateY(0);
 }
 
 .develop {
@@ -656,7 +702,38 @@ b, strong, .font-700{
 }
 @media(max-width: 767px) {
 	.menu {
-		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100dvh;
+		background: var(--bg-color);
+		color: #fff;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		font-family: var(--secondary-font);
+		font-size: 30px;
+		font-weight: 700;
+		transform: translateY(10%);
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+		z-index: 100;
+		.close {
+			display: block;
+			position: absolute;
+			top: 20px;
+			right: 20px;
+		}
+	}
+	.open-menu {
+		overflow: hidden;
+		.menu {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
 	}
 	.burger {
 		display: block;
@@ -712,6 +789,14 @@ b, strong, .font-700{
 	}
 	.cta__title br{
 		display: none;
+	}
+	#approach,
+	#problems,
+	#cases,
+	#why-me,
+	#services,
+	#contacts {
+		scroll-margin-top: 80px;
 	}
 }
 // 767
