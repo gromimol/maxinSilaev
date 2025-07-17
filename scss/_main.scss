@@ -851,7 +851,6 @@ b, strong, .font-700{
 .first-screen__right picture,
 .first-screen__right .image-3d {
     display: block;
-    border-radius: 0; /* Убираем border-radius если нужен оригинальный дизайн */
 }
 
 .first-screen__right:hover::before {
@@ -987,7 +986,6 @@ b, strong, .font-700{
     animation: imageAppear 0.8s ease-out;
 }
 
-/* Альтернативный вариант - более выраженный 3D эффект */
 .image-3d-strong:hover img {
     transform: perspective(1000px) rotateY(-12deg) rotateX(2deg) scale(1.05);
 }
@@ -1019,5 +1017,5 @@ b, strong, .font-700{
 
 .image-card-3d:hover img {
     transform: scale(1.02);
-}
+}	
 }
